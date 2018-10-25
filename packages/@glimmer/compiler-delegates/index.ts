@@ -13,6 +13,11 @@ export {
 } from "./src/module-unification/code-generator";
 
 export {
+  stripTemplateImports,
+  getTemplateImports
+} from './src/module-unification/template-imports';
+
+export {
   Builtins,
   BuiltinLocator,
   HelperLocator,
