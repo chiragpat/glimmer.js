@@ -10,7 +10,7 @@ import Application, { ApplicationConstructor, BytecodeLoader, DOMBuilder, Loader
 import { ComponentManager, CAPABILITIES } from '@glimmer/component';
 import { assert } from '@glimmer/util';
 import { BundleCompiler, CompilerDelegate as ICompilerDelegate } from '@glimmer/bundle-compiler';
-import { buildAction, mainTemplate } from '@glimmer/application';
+import { buildAction, mainTemplate, sampleContextArgHelper } from '@glimmer/application';
 import { CompilableProgram } from '@glimmer/opcode-compiler';
 import { Cursor } from '@glimmer/runtime';
 

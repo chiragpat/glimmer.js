@@ -135,3 +135,16 @@ test('debug name from references can be extracted', function(assert) {
   assert.strictEqual(debugInfoForReference(refOne), `('name' on parent) `);
   assert.strictEqual(debugInfoForReference(refTwo), `('address' on contact) `);
 });
+
+test('dynamic context arg helper works', async function(assert) {
+  assert.expect(1);
+
+  let app = await buildApp()
+    .template('Main', '<div class="test">hello world from {{sampleContextArgHelper}}</div>')
+    .boot();
+
+  let root = app.rootElement as Element;
+
+  let h1 = root.querySelector('.test') as HTMLElement;
+  assert.equal(h1.innerText, 'hello world from en_US');
+});

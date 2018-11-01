@@ -21,7 +21,7 @@ import {
 import {
   Simple, Opaque
 } from '@glimmer/interfaces';
-import { PathReference } from '@glimmer/reference';
+import { PathReference, ConstReference } from '@glimmer/reference';
 
 import ApplicationRegistry from './application-registry';
 import DynamicScope from './dynamic-scope';
@@ -301,7 +301,11 @@ export default class Application implements Owner {
     let self = this._self = new UpdatableReference({ roots: this._roots });
 
     // Create an empty root scope.
-    let dynamicScope = new DynamicScope();
+    let dynamicScope = new DynamicScope({
+      i18n: new ConstReference({
+        locale: 'en_US'
+      })
+    });
 
     let builder = this.builder.getBuilder(env);
     let templateIterator = await this.loader.getTemplateIterator(this, env, builder, dynamicScope, self);

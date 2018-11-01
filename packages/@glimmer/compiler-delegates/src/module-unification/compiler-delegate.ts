@@ -49,7 +49,8 @@ export default class MUCompilerDelegate implements AppCompilerDelegate<TemplateM
     return {
       mainTemplate,
       if: helperLocatorFor('@glimmer/application', 'ifHelper'),
-      action: helperLocatorFor('@glimmer/application', 'actionHelper', true)
+      action: helperLocatorFor('@glimmer/application', 'actionHelper', true),
+      sampleContextArgHelper: helperLocatorFor('@glimmer/application', 'sampleContextArgHelper', true)
     };
   }
 
